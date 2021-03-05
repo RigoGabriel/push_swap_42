@@ -24,7 +24,13 @@ SW_SRC = push_swap.c \
 					check_error.c \
 					parsing.c \
 					sort_helper.c \
-					cmd.c
+					check_tri.c \
+					cmd.c \
+					best_a_to_b.c \
+					ft_outil.c \
+					best_rotation.c \
+					clear.c \
+					sort_all.c
 
 CH_OBJ		= $(addprefix $(CH_OBJDIR)/,$(CH_SRC:.c=.o))
 SW_OBJ		= $(addprefix $(SW_OBJDIR)/,$(SW_SRC:.c=.o))

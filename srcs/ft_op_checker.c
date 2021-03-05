@@ -1,6 +1,6 @@
 #include "pile.h"
 
-void ft_rrr(Pile *pile, int lenght, char *cmd)
+void ft_rrr(t_pile *pile, int lenght, char *cmd)
 {
   int nb[lenght + 1];
   int i;
@@ -24,7 +24,7 @@ void ft_rrr(Pile *pile, int lenght, char *cmd)
     printf("%s\n", cmd);
 }
 
-void ft_rr(Pile *pile, int lenght, char *cmd)
+void ft_rr(t_pile *pile, int lenght, char *cmd)
 {
   int nb[lenght + 1];
   int i;
@@ -48,7 +48,7 @@ void ft_rr(Pile *pile, int lenght, char *cmd)
     printf("%s\n", cmd);
 }
 
-void ft_ss(Pile *pile, char *cmd)
+void ft_ss(t_pile *pile, char *cmd)
 {
   int nb[2];
 
@@ -62,7 +62,7 @@ void ft_ss(Pile *pile, char *cmd)
     printf("%s\n", cmd);
 }
 
-void ft_pp(Pile *empil, Pile *depile, char *cmd)
+void ft_pp(t_pile *empil, t_pile *depile, char *cmd)
 {
   int nb;
 

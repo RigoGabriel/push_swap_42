@@ -1,15 +1,15 @@
 #include "pile.h"
 
-Pile *initialiser(void)
+t_pile *initialiser(void)
 {
-    Pile *pile = malloc(sizeof(*pile));
+    t_pile *pile = malloc(sizeof(*pile));
     pile->first = NULL;
     return (pile);
 }
 
-int pile_count(Pile *pile)
+int pile_count(t_pile *pile)
 {
-  Element *actuel;
+  t_element *actuel;
   int i;
 
   if (pile == NULL)
@@ -24,9 +24,9 @@ int pile_count(Pile *pile)
   return (i);
 }
 
-void empiler(Pile *pile, int nb)
+void empiler(t_pile *pile, int nb)
 {
-  Element *new;
+  t_element *new;
 
   new = malloc(sizeof(*new));
   if (pile == NULL || new == NULL)
@@ -36,10 +36,10 @@ void empiler(Pile *pile, int nb)
   pile->first = new;
 }
 
-int depiler(Pile *pile)
+int depiler(t_pile *pile)
 {
   int nbDepile;
-  Element *elDepile;
+  t_element *elDepile;
 
   if (pile == NULL)
     exit(EXIT_FAILURE);
@@ -54,13 +54,13 @@ int depiler(Pile *pile)
   return (nbDepile);
 }
 
-void showPile(Pile *pile)
+void show_pile(t_pile *pile)
 {
-  Element *actuel;
+  t_element *actuel;
   int i;
 
   if (pile == NULL)
-    exit(EXIT_FAILURE);
+    return ;
   actuel = pile->first;
   while (actuel)
   {

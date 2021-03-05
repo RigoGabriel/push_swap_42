@@ -1,8 +1,8 @@
 #include "pile.h"
 
-int   ft_check_tri(Pile *pile)
+int   ft_check_tri(t_pile *pile)
 {
-  Element *actuel;
+  t_element *actuel;
   int tmp;
 
   if (pile == NULL)
@@ -21,7 +21,7 @@ int   ft_check_tri(Pile *pile)
   return (1);
 }
 
-int   ft_check(Pile *pile_a, Pile *pile_b)
+int   ft_check(t_pile *pile_a, t_pile *pile_b)
 {
   if (pile_count(pile_b) == 0)
   {

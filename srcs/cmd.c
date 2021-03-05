@@ -1,6 +1,16 @@
 #include "pile.h"
 
-int ft_cmd(char *cmd, Pile *pile_a, Pile *pile_b)
+void show(t_pile *a, t_pile *b)
+{
+  printf("Pile a\n");
+  show_pile(a);
+  printf("Pile b\n");
+  show_pile(b);
+  sleep(1);
+  system("clear");
+}
+
+int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b)
 {
   if (!ft_strcmp(cmd, "sa"))
     ft_ss(pile_a, cmd);
@@ -35,5 +45,6 @@ int ft_cmd(char *cmd, Pile *pile_a, Pile *pile_b)
   }
   else
     return (0);
+  //show(pile_a, pile_b);
   return (1);
 }

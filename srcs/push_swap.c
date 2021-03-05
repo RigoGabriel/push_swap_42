@@ -1,42 +1,41 @@
 #include "pile.h"
 
-static void sort_little_pile(Pile *a, int len)
+static void sort_little_pile(t_pile *a, t_pile *b, int len)
 {
   register int  max_id;
-  Element       *actuel;
 
-  actuel = a->first;
   if (len == 1)
     return ;
   else if (len == 2)
   {
-    if (actuel->nb > actuel->next->nb)
-      ft_cmd("sa", a, NULL);
-    return ;
+    if (a->first->nb > a->first->next->nb)
+      ft_cmd("sa", a, b);
   }
   else
   {
     max_id = find_max_elem(a);
     if (max_id == 0)
-      ft_cmd("ra", a, NULL);
+      ft_cmd("ra", a, b);
     else if (max_id == 1)
-      ft_cmd("rra", a, NULL);
-    actuel = a->first;
-    if (actuel->nb > actuel->next->nb)
-      ft_cmd("sa", a, NULL);
+      ft_cmd("rra", a, b);
+    if (a->first->nb > a->first->next->nb)
+      ft_cmd("sa", a, b);
   }
 }
 
-void  sort_stack(Pile *a)
+void  sort_stack(t_pile *a, t_pile *b)
 {
   if (pile_count(a) <= 3)
-    sort_little_pile(a, pile_count(a));
+    sort_little_pile(a, b, pile_count(a));
+  else
+    sort_all(a, b);
 }
 
 int   main(int ac, char *av[])
 {
   int i;
-  Pile *a;
+  t_pile *a;
+  t_pile *b;
   char **tab;
 
   if (ac <= 1)
@@ -49,6 +48,7 @@ int   main(int ac, char *av[])
     exit(-1);
   }
   a = initialiser();
+  b = initialiser();
   i = ft_tablen(tab) - 1;
   while (i >= 0)
   {
@@ -56,11 +56,9 @@ int   main(int ac, char *av[])
     i--;
   }
   ft_splitdel(&tab);
-  //printf("Pile a first\n");
-  sort_stack(a);
-  showPile(a);
-  //printf("Pile a after\n");
-  //showPile(a);
+  sort_stack(a, b);
+  show_pile(a);
+  //show_pile(b);
   //system("leaks push_swap");
   return (0);
 }

@@ -1,6 +1,6 @@
 #include "pile.h"
 
-void  loop(Pile *pile_a, Pile *pile_b)
+void  loop(t_pile *pile_a, t_pile *pile_b)
 {
   char *line;
 
@@ -16,7 +16,6 @@ void  loop(Pile *pile_a, Pile *pile_b)
     free(line);
     line = NULL;
   }
-  showPile(pile_a);
   ft_check(pile_a, pile_b);
 }
 
@@ -24,8 +23,8 @@ int main(int ac, char *av[])
 {
   int   i;
   char  **tab;
-  Pile  *pile_a;
-  Pile  *pile_b;
+  t_pile  *pile_a;
+  t_pile  *pile_b;
 
   if (ac <= 1)
     exit(0);
