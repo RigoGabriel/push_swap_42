@@ -16,28 +16,31 @@ void  loop(Pile *pile_a, Pile *pile_b)
     free(line);
     line = NULL;
   }
+  showPile(pile_a);
   ft_check(pile_a, pile_b);
 }
 
 int main(int ac, char *av[])
 {
-  int i;
-  Pile *pile_a;
-  Pile *pile_b;
+  int   i;
+  char  **tab;
+  Pile  *pile_a;
+  Pile  *pile_b;
 
   if (ac <= 1)
     exit(0);
-  if (check_error(av) == -1)
+  tab = get_cmd(av, 1, 0, 0);
+  if (check_error(tab) == -1)
   {
     write(2, "Error\n", 6);
     exit(-1);
   }
   pile_a = initialiser();
   pile_b = initialiser();
-  i = ac - 1;
-  while (i > 0)
+  i = ft_tablen(tab) - 1;
+  while (i >= 0)
   {
-    empiler(pile_a, ft_atoi(av[i]));
+    empiler(pile_a, ft_atoi(tab[i]));
     i--;
   }
   loop(pile_a, pile_b);

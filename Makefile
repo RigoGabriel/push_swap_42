@@ -15,12 +15,16 @@ CH_SRC = checker.c \
 			ft_op_checker.c \
 			cmd.c \
 			check_tri.c \
-			check_error.c
+			check_error.c \
+			parsing.c
 
 SW_SRC = push_swap.c \
 					pile.c \
 					ft_op_checker.c \
-					check_error.c
+					check_error.c \
+					parsing.c \
+					sort_helper.c \
+					cmd.c
 
 CH_OBJ		= $(addprefix $(CH_OBJDIR)/,$(CH_SRC:.c=.o))
 SW_OBJ		= $(addprefix $(SW_OBJDIR)/,$(SW_SRC:.c=.o))

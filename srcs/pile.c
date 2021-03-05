@@ -57,13 +57,21 @@ int depiler(Pile *pile)
 void showPile(Pile *pile)
 {
   Element *actuel;
+  int i;
 
   if (pile == NULL)
     exit(EXIT_FAILURE);
   actuel = pile->first;
   while (actuel)
   {
-    printf("%d\n", actuel->nb);
+    printf("%d: ", actuel->nb);
+    i = 0;
+    while (i < actuel->nb)
+    {
+      printf("-");
+      i++;
+    }
+    printf("\n");
     actuel = actuel->next;
   }
 }
