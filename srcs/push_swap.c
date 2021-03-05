@@ -58,7 +58,7 @@ int   main(int ac, char *av[])
   ft_splitdel(&tab);
   sort_stack(a, b);
   show_pile(a);
-  //show_pile(b);
+  show_pile(b);
   //system("leaks push_swap");
   return (0);
 }

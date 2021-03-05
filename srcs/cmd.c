@@ -28,23 +28,23 @@ int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b)
   else if (!ft_strcmp(cmd, "ra"))
     ft_rr(pile_a, pile_count(pile_a), cmd);
   else if (!ft_strcmp(cmd, "rb"))
-    ft_rr(pile_b, pile_count(pile_a), cmd);
+    ft_rr(pile_b, pile_count(pile_b), cmd);
   else if (!ft_strcmp(cmd, "rr"))
   {
-    ft_rr(pile_a, pile_count(pile_a), "rr");
-    ft_rr(pile_b, pile_count(pile_a), NULL);
+    ft_rr(pile_a, pile_count(pile_a), cmd);
+    ft_rr(pile_b, pile_count(pile_b), NULL);
   }
   else if (!ft_strcmp(cmd, "rra"))
     ft_rrr(pile_a, pile_count(pile_a), cmd);
   else if (!ft_strcmp(cmd, "rrb"))
-    ft_rrr(pile_b, pile_count(pile_a), cmd);
+    ft_rrr(pile_b, pile_count(pile_b), cmd);
   else if (!ft_strcmp(cmd, "rrr"))
   {
-    ft_rrr(pile_a, pile_count(pile_a), "rrr");
-    ft_rrr(pile_b, pile_count(pile_a), NULL);
+    ft_rrr(pile_a, pile_count(pile_a), cmd);
+    ft_rrr(pile_b, pile_count(pile_b), NULL);
   }
   else
     return (0);
-  //show(pile_a, pile_b);
+  show(pile_a, pile_b);
   return (1);
 }

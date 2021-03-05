@@ -6,7 +6,7 @@ int   check_error(char **av)
   int j;
   long res;
 
-  i = 1;
+  i = 0;
   while (av[i])
   {
     j = 0;
@@ -18,7 +18,7 @@ int   check_error(char **av)
     }
     i++;
   }
-  i = 1;
+  i = 0;
   while (av[i])
   {
     j = i + 1;
@@ -30,7 +30,7 @@ int   check_error(char **av)
     }
     i++;
   }
-  i = 1;
+  i = 0;
   while (av[i])
   {
     res = ft_atoi(av[i]);
