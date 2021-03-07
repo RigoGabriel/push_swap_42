@@ -35,6 +35,7 @@ int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b)
   }
   else
     return (0);
+  pile_a->count++;
   if (pile_a->flag == 1)
     printf("%s\n", cmd);
   if (pile_a->visual == 1)

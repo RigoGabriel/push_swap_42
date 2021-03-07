@@ -1,24 +1,58 @@
 #include "pile.h"
 
-int   check_error(char **av)
+int ft_isnum(char **av, int i, int *j)
+{
+  if (av[i][*j + 1] == '\0' || av[i][*j + 1] == ' ' || av[i][*j + 1] == '\n')
+    return (-1);
+  if (*j == 0)
+  {
+    *j += 1;
+    while (av[i][*j] || av[i][*j] == ' ')
+    {
+      if (!ft_isdigit(av[i][*j]))
+        return (-1);
+      *j += 1;
+    }
+  }
+  else if (av[i][*j - 1] != ' ')
+    return (-1);
+  else
+  {
+    *j += 1;
+    while (av[i][*j] || av[i][*j] == ' ')
+    {
+      if (!ft_isdigit(av[i][*j]))
+        return (-1);
+      j++;
+    }
+  }
+  return (0);
+}
+
+int   check_error(char **av, int first)
 {
   int i;
   int j;
   long res;
 
-  i = 0;
+  i = first;
   while (av[i])
   {
     j = 0;
     while (av[i][j] != '\0')
     {
-      if ((av[i][j] < 48 || av[i][j] > 57) && (av[i][0] != 45 ))
+      if (av[i][j] == '-')
+      {
+        if (ft_isnum(av, i, &j) == -1)
+          return (-1);
+      }
+      else if (!ft_isdigit(av[i][j]))
         return (-1);
       j++;
     }
     i++;
   }
-  i = 0;
+  i = first;
   while (av[i])
   {
     j = i + 1;
@@ -30,7 +64,7 @@ int   check_error(char **av)
     }
     i++;
   }
-  i = 0;
+  i = first;
   while (av[i])
   {
     res = ft_atoi(av[i]);

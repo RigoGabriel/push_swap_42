@@ -17,6 +17,8 @@ typedef struct  s_pile
   int       flag;
   int       color;
   int       visual;
+  int       total;
+  int       count;
 }               t_pile;
 
 typedef struct  s_move
@@ -35,7 +37,7 @@ typedef struct  s_move
 void empiler(t_pile *pile, int nb);
 int depiler(t_pile *pile);
 void show_pile(t_pile *pile);
-t_pile *initialiser(int flag, int c, int v);
+t_pile *initialiser(int flag);
 int pile_count(t_pile *pile);
 void show_final_pile(t_pile *pile);
 
@@ -51,7 +53,7 @@ int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b);
 //fonction check
 int   ft_check_tri(t_pile *pile);
 int   ft_check(t_pile *pile_a, t_pile *pile_b);
-int   check_error(char **av);
+int   check_error(char **av, int first);
 
 //fonction parsing
 int   ft_nb_cmd(char **av, int i, int j, int len);

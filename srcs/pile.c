@@ -1,12 +1,14 @@
 #include "pile.h"
 
-t_pile *initialiser(int f, int c, int v)
+t_pile *initialiser(int f)
 {
     t_pile *pile = malloc(sizeof(*pile));
     pile->first = NULL;
     pile->flag = f;
-    pile->color = c;
-    pile->visual = v;
+    pile->color = 0;
+    pile->visual = 0;
+    pile->total = 0;
+    pile->count = 0;
     return (pile);
 }
 
