@@ -12,6 +12,7 @@ int   find_max_elem(t_pile *pile)
   actuel = pile->first;
   res = actuel->nb;
   i = 0;
+  id = 0;
   while (actuel)
   {
     if (res < actuel->nb)
@@ -37,6 +38,7 @@ int   find_min_elem(t_pile *pile)
   actuel = pile->first;
   res = actuel->nb;
   i = 0;
+  id = 0;
   while (actuel)
   {
     if (res > actuel->nb)

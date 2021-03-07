@@ -1,9 +1,12 @@
 #include "pile.h"
 
-t_pile *initialiser(void)
+t_pile *initialiser(int f, int c, int v)
 {
     t_pile *pile = malloc(sizeof(*pile));
     pile->first = NULL;
+    pile->flag = f;
+    pile->color = c;
+    pile->visual = v;
     return (pile);
 }
 
@@ -72,6 +75,30 @@ void show_pile(t_pile *pile)
       i++;
     }
     printf("\n");
+    actuel = actuel->next;
+  }
+}
+
+void show_final_pile(t_pile *pile)
+{
+  t_element *actuel;
+  int i;
+
+  if (pile == NULL)
+    return ;
+  actuel = pile->first;
+  while (actuel)
+  {
+    printf("\033[0;32m");
+    printf("%d: ", actuel->nb);
+    i = 0;
+    while (i < actuel->nb)
+    {
+      printf("-");
+      i++;
+    }
+    printf("\n");
+    system("sleep 0.05");
     actuel = actuel->next;
   }
 }

@@ -4,7 +4,6 @@ static int		find_common(t_move *moves)
 {
 	register int		common;
 
-	printf("Enter in find_common\n");
 	common = 0;
 	if ((!ft_strcmp(moves->a_rot_type, "rra") && (!ft_strcmp(moves->b_rot_type , "rrb"))) ||
 			(!ft_strcmp(moves->a_rot_type, "ra") && (!ft_strcmp(moves->b_rot_type , "rb"))))
@@ -26,7 +25,6 @@ static int		find_place_in_b(t_pile *b, int len, int elem, char **rot_type)
 	register int i;
 	register int place;
 
-	printf("Enter in find_place_in_b\n");
 	i = 0;
 	place = 0;
 	if (len == 2 && elem > ft_elem(b, 0) && elem < ft_elem(b, len - 1))
@@ -55,7 +53,6 @@ static t_move	  *calc_moves_from_a_to_b(t_pile *a, t_pile *b, int pos)
 {
 	t_move *moves;
 
-	printf("Enter in calc_moves_from_a_to_b\n");
 	moves = (t_move *)malloc(sizeof(t_move));
 	moves->a_rot_type = ft_strnew(3);
 	moves->b_rot_type = ft_strnew(3);
@@ -74,7 +71,6 @@ t_move          *best_a_to_b(t_pile *a, t_pile *b)
 	t_move					*best_move;
 	t_move					*moves;
 
-	printf("Enter in best_a_to_b\n");
 	i = 0;
 	while (i < pile_count(a))
 	{

@@ -1,6 +1,6 @@
 #include "pile.h"
 
-void ft_rrr(t_pile *pile, int lenght, char *cmd)
+void ft_rrr(t_pile *pile, int lenght)
 {
   int nb[lenght + 1];
   int i;
@@ -20,11 +20,9 @@ void ft_rrr(t_pile *pile, int lenght, char *cmd)
     i--;
   }
   empiler(pile, nb[lenght - 1]);
-  if (cmd != NULL)
-    printf("%s\n", cmd);
 }
 
-void ft_rr(t_pile *pile, int lenght, char *cmd)
+void ft_rr(t_pile *pile, int lenght)
 {
   int nb[lenght + 1];
   int i;
@@ -44,11 +42,9 @@ void ft_rr(t_pile *pile, int lenght, char *cmd)
     empiler(pile, nb[i]);
     i--;
   }
-  if (cmd != NULL)
-    printf("%s\n", cmd);
 }
 
-void ft_ss(t_pile *pile, char *cmd)
+void ft_ss(t_pile *pile)
 {
   int nb[2];
 
@@ -58,11 +54,9 @@ void ft_ss(t_pile *pile, char *cmd)
   nb[1] = depiler(pile);
   empiler(pile, nb[0]);
   empiler(pile, nb[1]);
-  if (cmd != NULL)
-    printf("%s\n", cmd);
 }
 
-void ft_pp(t_pile *empil, t_pile *depile, char *cmd)
+void ft_pp(t_pile *empil, t_pile *depile)
 {
   int nb;
 
@@ -70,5 +64,4 @@ void ft_pp(t_pile *empil, t_pile *depile, char *cmd)
     return ;
   nb = depiler(depile);
   empiler(empil, nb);
-  printf("%s\n", cmd);
 }

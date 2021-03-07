@@ -7,7 +7,7 @@ int             ft_elem(t_pile *pile, int pos)
 
   actuel = pile->first;
   i = 0;
-  while (i < pos)
+  while (i < pos && actuel->next)
   {
     actuel = actuel->next;
     i++;

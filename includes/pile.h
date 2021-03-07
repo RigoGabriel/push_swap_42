@@ -14,6 +14,9 @@ typedef struct  s_element
 typedef struct  s_pile
 {
   t_element *first;
+  int       flag;
+  int       color;
+  int       visual;
 }               t_pile;
 
 typedef struct  s_move
@@ -32,14 +35,15 @@ typedef struct  s_move
 void empiler(t_pile *pile, int nb);
 int depiler(t_pile *pile);
 void show_pile(t_pile *pile);
-t_pile *initialiser(void);
+t_pile *initialiser(int flag, int c, int v);
 int pile_count(t_pile *pile);
+void show_final_pile(t_pile *pile);
 
 //fonction operation
-void ft_ss(t_pile *pile, char *cmd);
-void ft_pp(t_pile *empil, t_pile *depile, char *cmd);
-void ft_rr(t_pile *pile, int lenght, char *cmd);
-void ft_rrr(t_pile *pile, int lenght, char *cmd);
+void ft_ss(t_pile *pile);
+void ft_pp(t_pile *empil, t_pile *depile);
+void ft_rr(t_pile *pile, int lenght);
+void ft_rrr(t_pile *pile, int lenght);
 
 //fonction commande
 int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b);
@@ -73,5 +77,8 @@ void	free_move(t_move *moves);
 
 //fonction sort
 void sort_all(t_pile *a, t_pile *b);
+
+//fonction show
+void show(t_pile *a, t_pile *b);
 
 #endif

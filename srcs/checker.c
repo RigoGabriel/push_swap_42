@@ -34,8 +34,8 @@ int main(int ac, char *av[])
     write(2, "Error\n", 6);
     exit(-1);
   }
-  pile_a = initialiser();
-  pile_b = initialiser();
+  pile_a = initialiser(0, 0, 0);
+  pile_b = initialiser(0, 0, 0);
   i = ft_tablen(tab) - 1;
   while (i >= 0)
   {

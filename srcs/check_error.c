@@ -12,7 +12,7 @@ int   check_error(char **av)
     j = 0;
     while (av[i][j] != '\0')
     {
-      if ((av[i][j] < 48 || av[i][j] > 57) && av[i][0] != 45)
+      if ((av[i][j] < 48 || av[i][j] > 57) && (av[i][0] != 45 ))
         return (-1);
       j++;
     }

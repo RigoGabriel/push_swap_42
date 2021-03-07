@@ -5,7 +5,6 @@ int		find_place_in_a(t_pile *a, int len, int elem, char **rot_type)
 	register int i;
 	register int place;
 
-	printf("Enter in find_place_in_a\n");
 	i = 0;
 	place = 0;
 	if (len == 2 && elem > ft_elem(a, 0) && elem < ft_elem(a, 1))
@@ -33,7 +32,6 @@ static void	insert_back_in_a(t_pile *a, t_pile *b)
 	register int	num_of_rots;
 	char			*rot_type;
 
-	printf("Enter in insert_back_in_a\n");
 	num_of_rots = 0;
 	rot_type = ft_strnew(3);
 	while (pile_count(b))
@@ -57,7 +55,6 @@ static void	insert_leftover_to_b(t_pile *a, t_pile *b)
 {
 	int idx;
 
-	printf("Enter in insert_leftover_to_b\n");
 	idx = 0;
 	while (pile_count(a) > 2)
 	{
@@ -96,12 +93,9 @@ void sort_all(t_pile *a, t_pile *b)
   t_move    *best_move;
   int       optimizer;
 
-	printf("Enter in sort_all\n");
-  if (ft_check_tri(a) == 1)
-    return ;
   optimizer = (pile_count(a) > 200) ? 50 : 2;
-  while (pile_count(b) != 2)
-    ft_cmd("pb", a, b);
+  ft_cmd("pb", a, b);
+  ft_cmd("pb", a, b);
   while (pile_count(a) > optimizer)
   {
     best_move = best_a_to_b(a, b);

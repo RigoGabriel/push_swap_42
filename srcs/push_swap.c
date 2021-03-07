@@ -25,6 +25,8 @@ static void sort_little_pile(t_pile *a, t_pile *b, int len)
 
 void  sort_stack(t_pile *a, t_pile *b)
 {
+  if (ft_check_tri(a) == 1)
+    return ;
   if (pile_count(a) <= 3)
     sort_little_pile(a, b, pile_count(a));
   else
@@ -47,8 +49,8 @@ int   main(int ac, char *av[])
     write(2, "Error\n", 6);
     exit(-1);
   }
-  a = initialiser();
-  b = initialiser();
+  a = initialiser(1, 1, 1);
+  b = initialiser(1, 1, 1);
   i = ft_tablen(tab) - 1;
   while (i >= 0)
   {
@@ -57,8 +59,7 @@ int   main(int ac, char *av[])
   }
   ft_splitdel(&tab);
   sort_stack(a, b);
-  show_pile(a);
-  show_pile(b);
-  //system("leaks push_swap");
+  if (a->color == 1)
+    show_final_pile(a);
   return (0);
 }
