@@ -32,7 +32,9 @@ SW_SRC = push_swap.c \
 					best_rotation.c \
 					clear.c \
 					sort_all.c \
-					show.c
+					show.c \
+					sort_pile.c \
+					get_arg.c \
 
 CH_OBJ		= $(addprefix $(CH_OBJDIR)/,$(CH_SRC:.c=.o))
 SW_OBJ		= $(addprefix $(SW_OBJDIR)/,$(SW_SRC:.c=.o))

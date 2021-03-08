@@ -1,5 +1,26 @@
 #include "pile.h"
 
+int ft_cmd2(char *cmd, t_pile *pile_a, t_pile *pile_b)
+{
+  if (!ft_strcmp(cmd, "rr"))
+  {
+    ft_rr(pile_a, pile_count(pile_a));
+    ft_rr(pile_b, pile_count(pile_b));
+  }
+  else if (!ft_strcmp(cmd, "rra"))
+    ft_rrr(pile_a, pile_count(pile_a));
+  else if (!ft_strcmp(cmd, "rrb"))
+    ft_rrr(pile_b, pile_count(pile_b));
+  else if (!ft_strcmp(cmd, "rrr"))
+  {
+    ft_rrr(pile_a, pile_count(pile_a));
+    ft_rrr(pile_b, pile_count(pile_b));
+  }
+  else
+    return (0);
+  return (1);
+}
+
 int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b)
 {
   if (!ft_strcmp(cmd, "sa"))
@@ -19,22 +40,9 @@ int ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b)
     ft_rr(pile_a, pile_count(pile_a));
   else if (!ft_strcmp(cmd, "rb"))
     ft_rr(pile_b, pile_count(pile_b));
-  else if (!ft_strcmp(cmd, "rr"))
-  {
-    ft_rr(pile_a, pile_count(pile_a));
-    ft_rr(pile_b, pile_count(pile_b));
-  }
-  else if (!ft_strcmp(cmd, "rra"))
-    ft_rrr(pile_a, pile_count(pile_a));
-  else if (!ft_strcmp(cmd, "rrb"))
-    ft_rrr(pile_b, pile_count(pile_b));
-  else if (!ft_strcmp(cmd, "rrr"))
-  {
-    ft_rrr(pile_a, pile_count(pile_a));
-    ft_rrr(pile_b, pile_count(pile_b));
-  }
   else
-    return (0);
+    if (ft_cmd2(cmd, pile_a, pile_b) == 0)
+      return (0);
   pile_a->count++;
   if (pile_a->flag == 1)
     printf("%s\n", cmd);

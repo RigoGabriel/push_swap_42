@@ -29,13 +29,13 @@ int main(int ac, char *av[])
   if (ac <= 1)
     exit(0);
   tab = get_cmd(av, 1, 0, 0);
-  if (check_error(tab) == -1)
+  if (check_error(tab, 0) == -1)
   {
     write(2, "Error\n", 6);
     exit(-1);
   }
-  pile_a = initialiser(0, 0, 0);
-  pile_b = initialiser(0, 0, 0);
+  pile_a = initialiser(0);
+  pile_b = initialiser(0);
   i = ft_tablen(tab) - 1;
   while (i >= 0)
   {

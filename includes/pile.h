@@ -4,6 +4,9 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "../libft/includes/libft.h"
+# define GREEN "\033[0;32m"
+# define WHITE "\033[0;37m"
+# define RED   "\033[0;31m"
 
 typedef struct  s_element
 {
@@ -36,10 +39,8 @@ typedef struct  s_move
 //fonction pile
 void empiler(t_pile *pile, int nb);
 int depiler(t_pile *pile);
-void show_pile(t_pile *pile);
 t_pile *initialiser(int flag);
 int pile_count(t_pile *pile);
-void show_final_pile(t_pile *pile);
 
 //fonction operation
 void ft_ss(t_pile *pile);
@@ -58,6 +59,7 @@ int   check_error(char **av, int first);
 //fonction parsing
 int   ft_nb_cmd(char **av, int i, int j, int len);
 char  **get_cmd(char **av, int i, int j, int j_cmd);
+int get_arg(char **tab, t_pile *a);
 
 //fonction sort_helper
 int   find_max_elem(t_pile *pile);
@@ -79,8 +81,10 @@ void	free_move(t_move *moves);
 
 //fonction sort
 void sort_all(t_pile *a, t_pile *b);
+void  sort_pile(t_pile *a, t_pile *b);
 
 //fonction show
 void show(t_pile *a, t_pile *b);
+void show_final_pile(t_pile *pile);
 
 #endif
