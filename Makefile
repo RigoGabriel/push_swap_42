@@ -17,7 +17,8 @@ CH_SRC = checker.c \
 			check_tri.c \
 			check_error.c \
 			parsing.c \
-			show.c
+			show.c \
+			sort_helper.c
 
 SW_SRC = push_swap.c \
 					pile.c \

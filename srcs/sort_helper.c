@@ -52,6 +52,42 @@ int   find_min_elem(t_pile *pile)
   return (id);
 }
 
+int   get_max(t_pile *pile)
+{
+  register int  res;
+  t_element       *actuel;
+
+  if (pile_count(pile) == 0)
+		return (-1);
+  actuel = pile->first;
+  res = actuel->nb;
+  while (actuel)
+  {
+    if (res < actuel->nb)
+      res = actuel->nb;
+    actuel = actuel->next;
+  }
+  return (res);
+}
+
+int   get_min(t_pile *pile)
+{
+  register int  res;
+  t_element       *actuel;
+
+  if (pile_count(pile) == 0)
+		return (-1);
+  actuel = pile->first;
+  res = actuel->nb;
+  while (actuel)
+  {
+    if (res > actuel->nb)
+      res = actuel->nb;
+    actuel = actuel->next;
+  }
+  return (res);
+}
+
 void	place_smallest_first_a(t_pile *a, t_pile *b)
 {
 	register int min_index;

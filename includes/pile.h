@@ -65,6 +65,8 @@ int get_arg(char **tab, t_pile *a);
 int   find_max_elem(t_pile *pile);
 int   find_min_elem(t_pile *pile);
 void	place_smallest_first_a(t_pile *a, t_pile *b);
+int   get_max(t_pile *pile);
+int   get_min(t_pile *pile);
 
 //fonction best moves
 t_move          *best_a_to_b(t_pile *a, t_pile *b);
