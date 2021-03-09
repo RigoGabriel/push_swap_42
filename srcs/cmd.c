@@ -37,7 +37,12 @@ void	ft_exec_arg(t_pile *pile_a, t_pile *pile_b, char *cmd)
 {
 	pile_a->count++;
 	if (pile_a->flag == 1)
-		printf("%s\n", cmd);
+	{
+		if (pile_a->visual == 1)
+			printf("command = %s\n", cmd);
+		else
+			printf("%s\n", cmd);
+	}
 	if (pile_a->visual == 1)
 		show(pile_a, pile_b);
 }

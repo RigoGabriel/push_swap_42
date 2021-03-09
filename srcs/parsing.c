@@ -6,7 +6,7 @@
 /*   By: grigo <grigo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:08:55 by grigo             #+#    #+#             */
-/*   Updated: 2021/03/08 14:10:50 by grigo            ###   ########.fr       */
+/*   Updated: 2021/03/09 13:22:08 by grigo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,43 +33,64 @@ int		ft_nb_cmd(char **av, int i, int j, int len)
 	return (len);
 }
 
-char	**get_cmd(char **av, int i, int j, int j_cmd)
+int		new_cmd2(char **cmd, char *av, int **index_cmd, int *j_cmd)
+{
+	cmd[**index_cmd][*j_cmd] = '\0';
+	*j_cmd = 0;
+	**index_cmd += 1;
+	if (!(cmd[**index_cmd] =
+			(char *)malloc(sizeof(char *) * (ft_strlen(av) + 1))))
+		return (-1);
+	return (0);
+}
+
+int		new_cmd(char **cmd, char *av, int *index_cmd, int j)
+{
+	int j_cmd;
+
+	j_cmd = 0;
+	while (av[j])
+	{
+		if (av[j] != ' ')
+		{
+			cmd[*index_cmd][j_cmd] = av[j];
+			j_cmd++;
+		}
+		else
+		{
+			while (av[j + 1] == ' ')
+				j++;
+			if (av[j + 1] != '\0')
+				if (new_cmd2(cmd, &av[j], &index_cmd, &j_cmd) == -1)
+					return (-1);
+		}
+		j++;
+	}
+	cmd[*index_cmd][j_cmd] = '\0';
+	return (0);
+}
+
+char	**get_cmd(char **av, int i, int index_cmd)
 {
 	char	**cmd;
-	int		index_cmd;
-	int		len;
+	int		j;
 
-	index_cmd = 0;
-	len = ft_nb_cmd(av, 1, 0, 0);
-	cmd = malloc(sizeof(char *) * (len + 1));
+	if (!(cmd = malloc(sizeof(char *) * (ft_nb_cmd(av, 1, 0, 0) + 1))))
+		return (NULL);
 	while (av[i])
 	{
-		cmd[index_cmd] = malloc(sizeof(char) * (ft_strlen(av[i]) + 1));
 		j = 0;
-		j_cmd = 0;
-		while (av[i][j])
-		{
-			if (av[i][j] != ' ')
-			{
-				cmd[index_cmd][j_cmd] = av[i][j];
-				j_cmd++;
-			}
-			else
-			{
-				while (av[i][j + 1] == ' ')
-					j++;
-				if (av[i][j + 1] != '\0')
-				{
-					cmd[index_cmd][j_cmd] = '\0';
-					j_cmd = 0;
-					index_cmd++;
-					cmd[index_cmd] =
-						malloc(sizeof(char) * (ft_strlen(&av[i][j]) + 1));
-				}
-			}
+		while (av[i][j] == ' ')
 			j++;
+		if (av[i][j] == '\0')
+		{
+			write(2, "Error\n", 6);
+			exit(-1);
 		}
-		cmd[index_cmd][j_cmd] = '\0';
+		if (!(cmd[index_cmd] = malloc(sizeof(char) * (ft_strlen(av[i]) + 1))))
+			return (NULL);
+		if (new_cmd(cmd, av[i], &index_cmd, j) == -1)
+			return (NULL);
 		index_cmd++;
 		i++;
 	}

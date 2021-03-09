@@ -43,4 +43,10 @@ void			sort_pile(t_pile *a, t_pile *b)
 		sort_little_pile(a, b, pile_count(a));
 	else
 		sort_all(a, b);
+	if (a->color == 1 || a->visual == 1)
+		show_final_pile(a);
+	if (a->total == 1)
+		printf("total operation = %d\n", a->count);
+	free_pile(a);
+	free_pile(b);
 }

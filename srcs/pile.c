@@ -16,7 +16,11 @@ t_pile	*initialiser(int f)
 {
 	t_pile *pile;
 
-	pile = malloc(sizeof(*pile));
+	if (!(pile = malloc(sizeof(*pile))))
+	{
+		write(2, "malloc failed\n", 14);
+		exit(-1);
+	}
 	pile->first = NULL;
 	pile->flag = f;
 	pile->color = 0;

@@ -77,7 +77,13 @@ static t_move	*calc_moves_from_a_to_b(t_pile *a, t_pile *b, int pos)
 {
 	t_move				*moves;
 
-	moves = (t_move *)malloc(sizeof(t_move));
+	if (!(moves = (t_move *)malloc(sizeof(t_move))))
+	{
+		free(a);
+		free(b);
+		write(2, "Error malloc failled\n", 21);
+		exit(-1);
+	}
 	moves->a_rot_type = ft_strnew(3);
 	moves->b_rot_type = ft_strnew(3);
 	moves->common_rot = ft_strnew(3);
