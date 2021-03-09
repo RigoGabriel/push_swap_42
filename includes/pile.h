@@ -127,4 +127,9 @@ void			sort_pile(t_pile *a, t_pile *b);
 void			show(t_pile *a, t_pile *b);
 void			show_final_pile(t_pile *pile);
 
+/*
+**utils command
+**ARG=`ruby -e "puts (1..130).to_a.shuffle.join(' ')"`
+*/
+
 #endif
