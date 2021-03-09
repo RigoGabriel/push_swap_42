@@ -6,7 +6,7 @@
 /*   By: grigo <grigo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:56 by grigo             #+#    #+#             */
-/*   Updated: 2021/03/08 14:45:04 by grigo            ###   ########.fr       */
+/*   Updated: 2021/03/09 14:39:32 by grigo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int				find_b_best_rotation(int len, int pos, char **b_rot_type);
 **fonction clear
 */
 void			free_move(t_move *moves);
-void free_pile(t_pile *pile);
+void			free_pile(t_pile *pile);
 
 /*
 **fonction sort
