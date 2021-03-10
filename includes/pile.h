@@ -74,6 +74,7 @@ int				ft_cmd(char *cmd, t_pile *pile_a, t_pile *pile_b);
 **fonction check
 */
 int				ft_check_tri(t_pile *pile);
+int				ft_check_reverse_tri(t_pile *pile);
 int				ft_check(t_pile *pile_a, t_pile *pile_b);
 int				check_error(char **av, int first);
 

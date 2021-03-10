@@ -12,10 +12,38 @@
 
 #include "pile.h"
 
+static void		sort_little_pile_r(t_pile *a, t_pile *b, int len)
+{
+	register int	min_id;
+
+	if (len == 1)
+		return ;
+	else if (len == 2)
+	{
+		if (a->first->nb < a->first->next->nb)
+			ft_cmd("sa", a, b);
+	}
+	else
+	{
+		min_id = find_min_elem(a);
+		if (min_id == 0)
+			ft_cmd("ra", a, b);
+		else if (min_id == 1)
+			ft_cmd("rra", a, b);
+		if (a->first->nb < a->first->next->nb)
+			ft_cmd("sa", a, b);
+	}
+}
+
 static void		sort_little_pile(t_pile *a, t_pile *b, int len)
 {
 	register int	max_id;
 
+	if (a->reverse == 1)
+	{
+		sort_little_pile_r(a, b, len);
+		return ;
+	}
 	if (len == 1)
 		return ;
 	else if (len == 2)
@@ -37,7 +65,8 @@ static void		sort_little_pile(t_pile *a, t_pile *b, int len)
 
 void			sort_pile(t_pile *a, t_pile *b)
 {
-	if (ft_check_tri(a) == 1)
+	if ((ft_check_tri(a) == 1 && a->reverse == 0)
+			|| (ft_check_reverse_tri(a) == 1 && a->reverse == 1))
 		return ;
 	if (pile_count(a) <= 3)
 		sort_little_pile(a, b, pile_count(a));

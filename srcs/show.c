@@ -6,7 +6,7 @@
 /*   By: grigo <grigo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:18:28 by grigo             #+#    #+#             */
-/*   Updated: 2021/03/09 10:22:12 by grigo            ###   ########.fr       */
+/*   Updated: 2021/03/10 16:42:34 by grigo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,14 +71,10 @@ void		show_pile(t_pile *a, t_pile *b)
 	t_element	*actuel_a;
 	t_element	*actuel_b;
 	int			i;
-	int			max;
-	int			min;
 
 	actuel_b = b->first;
 	actuel_a = a->first;
 	i = pile_count(a) + pile_count(b) + 1;
-	max = (get_max(a) > get_max(b)) ? get_max(a) : get_max(b);
-	min = (get_min(a) < get_min(b)) ? get_min(a) : get_min(b);
 	while (i >= 0)
 	{
 		actuel_a = print_a(a, b, i, actuel_a);
