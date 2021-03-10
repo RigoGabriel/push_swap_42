@@ -12,7 +12,7 @@
 
 #include "pile.h"
 
-int		ft_cmp_arg_str(t_pile *a, int j)
+int		ft_cmp_arg_str(t_pile *a, int j, t_pile *b)
 {
 	if (j == 0)
 	{
@@ -29,30 +29,37 @@ int		ft_cmp_arg_str(t_pile *a, int j)
 		a->total = 1;
 		return (1);
 	}
+	else if (j == 3)
+	{
+		a->reverse = 1;
+		b->reverse = 1;
+		return (1);
+	}
 	return (0);
 }
 
-int		ft_cmparg(t_pile *a, char *str)
+int		ft_cmparg(t_pile *a, char *str, t_pile *b)
 {
 	int		j;
-	char	*arg[4];
+	char	*arg[5];
 
 	arg[0] = "-v";
 	arg[1] = "-c";
 	arg[2] = "-t";
-	arg[3] = NULL;
+	arg[3] = "-r";
+	arg[4] = NULL;
 	j = 0;
 	while (arg[j])
 	{
 		if (!ft_strcmp(arg[j], str))
-			if (ft_cmp_arg_str(a, j) == 1)
+			if (ft_cmp_arg_str(a, j, b) == 1)
 				return (1);
 		j++;
 	}
 	return (0);
 }
 
-int		get_arg(char **tab, t_pile *a)
+int		get_arg(char **tab, t_pile *a, t_pile *b)
 {
 	int		i;
 
@@ -61,7 +68,7 @@ int		get_arg(char **tab, t_pile *a)
 	{
 		if ((tab[i][0] != '-') || (tab[i][0] == '-' && ft_isdigit(tab[i][1])))
 			return (i);
-		if (!ft_cmparg(a, tab[i]))
+		if (!ft_cmparg(a, tab[i], b))
 			return (i);
 		i++;
 	}

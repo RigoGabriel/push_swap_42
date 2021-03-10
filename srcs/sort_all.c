@@ -46,6 +46,10 @@ static void	insert_back_in_a(t_pile *a, t_pile *b)
 	register int	num_of_rots;
 	char			*rot_type;
 
+	if (a->reverse == 1)
+		insert_back_in_a_r(a, b);
+	if (a->reverse == 1)
+		return ;
 	num_of_rots = 0;
 	rot_type = ft_strnew(3);
 	while (pile_count(b))
@@ -71,6 +75,11 @@ static void	insert_leftover_to_b(t_pile *a, t_pile *b)
 	int				idx;
 
 	idx = 0;
+	if (a->reverse == 1)
+	{
+		insert_leftover_to_b_r(a, b);
+		return ;
+	}
 	while (pile_count(a) > 2)
 	{
 		idx = find_min_elem(a);

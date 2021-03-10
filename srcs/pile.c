@@ -27,6 +27,7 @@ t_pile	*initialiser(int f)
 	pile->visual = 0;
 	pile->total = 0;
 	pile->count = 0;
+	pile->reverse = 0;
 	return (pile);
 }
 

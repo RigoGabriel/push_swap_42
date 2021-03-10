@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include "libft.h"
 # define BUFFER_SIZE 100
 
 char	*ft_substr(char const *s, unsigned int start, size_t len);

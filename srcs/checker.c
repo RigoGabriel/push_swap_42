@@ -39,9 +39,32 @@ void	loop(t_pile *pile_a, t_pile *pile_b)
 	free_pile(pile_b);
 }
 
+int		ft_check_arg_error(t_pile *pile_a, t_pile *pile_b, char **tab)
+{
+	int id;
+
+	id = 0;
+	if (!ft_strcmp(tab[0], "-r"))
+	{
+		pile_a->reverse = 1;
+		pile_b->reverse = 1;
+		id = 1;
+	}
+	if (check_error(tab, id) == -1)
+	{
+		free_pile(pile_a);
+		free_pile(pile_b);
+		ft_splitdel(&tab);
+		write(2, "Error\n", 6);
+		exit(-1);
+	}
+	return (id);
+}
+
 int		main(int ac, char *av[])
 {
 	int		i;
+	int		id;
 	char	**tab;
 	t_pile	*pile_a;
 	t_pile	*pile_b;
@@ -50,16 +73,11 @@ int		main(int ac, char *av[])
 		exit(0);
 	if (!(tab = get_cmd(av, 1, 0)))
 		exit(-1);
-	if (check_error(tab, 0) == -1)
-	{
-		ft_splitdel(&tab);
-		write(2, "Error\n", 6);
-		exit(-1);
-	}
 	pile_a = initialiser(0);
 	pile_b = initialiser(0);
+	id = ft_check_arg_error(pile_a, pile_b, tab);
 	i = ft_tablen(tab);
-	while (i-- > 0)
+	while (i-- > id)
 		empiler(pile_a, ft_atoi(tab[i]));
 	ft_splitdel(&tab);
 	loop(pile_a, pile_b);

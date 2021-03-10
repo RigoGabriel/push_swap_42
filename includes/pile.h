@@ -6,7 +6,7 @@
 /*   By: grigo <grigo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:29:56 by grigo             #+#    #+#             */
-/*   Updated: 2021/03/09 14:39:32 by grigo            ###   ########.fr       */
+/*   Updated: 2021/03/10 12:50:14 by grigo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_pile
 	int			visual;
 	int			total;
 	int			count;
+	int			reverse;
 }				t_pile;
 
 typedef struct	s_move
@@ -81,7 +82,7 @@ int				check_error(char **av, int first);
 */
 int				ft_nb_cmd(char **av, int i, int j, int len);
 char			**get_cmd(char **av, int i, int index_cmd);
-int				get_arg(char **tab, t_pile *a);
+int				get_arg(char **tab, t_pile *a, t_pile *b);
 
 /*
 **fonction sort_helper
@@ -126,6 +127,18 @@ void			sort_pile(t_pile *a, t_pile *b);
 */
 void			show(t_pile *a, t_pile *b);
 void			show_final_pile(t_pile *pile);
+
+/*
+**fonction reverse
+*/
+void			place_bigest_first_a(t_pile *a, t_pile *b);
+void			insert_back_in_a_r(t_pile *a, t_pile *b);
+void			insert_leftover_to_b_r(t_pile *a, t_pile *b);
+int				find_place_in_a_r
+					(t_pile *a, int len, int elem, char **rot_type);
+int				find_place_in_b_2_r(t_pile *b, int len, int elem);
+int				find_place_in_b_r
+					(t_pile *b, int len, int elem, char **rot_type);
 
 /*
 **utils command

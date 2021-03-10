@@ -38,6 +38,8 @@ SW_SRC = push_swap.c \
 					show.c \
 					sort_pile.c \
 					get_arg.c \
+					bonus_reverse.c \
+					bonus_reverse_b.c
 
 CH_OBJ		= $(addprefix $(CH_OBJDIR)/,$(CH_SRC:.c=.o))
 SW_OBJ		= $(addprefix $(SW_OBJDIR)/,$(SW_SRC:.c=.o))

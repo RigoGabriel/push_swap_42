@@ -12,11 +12,11 @@
 
 #include "pile.h"
 
-int		ft_check_arg_error(t_pile *a, char **tab)
+int		ft_check_arg_error(t_pile *a, t_pile *b, char **tab)
 {
 	int		first;
 
-	if ((first = get_arg(tab, a)) == -1)
+	if ((first = get_arg(tab, a, b)) == -1)
 	{
 		ft_splitdel(&tab);
 		write(2, "Error\n", 6);
@@ -55,7 +55,7 @@ int		main(int ac, char *av[])
 	b = initialiser(1);
 	if (!(tab = get_cmd(av, 1, 0)))
 		exit(-1);
-	first = ft_check_arg_error(a, tab);
+	first = ft_check_arg_error(a, b, tab);
 	check_tab(tab, first);
 	i = ft_tablen(tab);
 	while (i-- > first)
