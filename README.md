@@ -41,3 +41,15 @@
     becomes the first one.
 
 •   rrr : rra and rrb at the same time.
+
+    run project:
+
+make
+
+    Get a shuffled list:
+
+ARG=`ruby -e "puts (1..130).to_a.shuffle.join(' ')"`
+
+    exec programs:
+
+./push_swap $ARG | ./checker $ARG
