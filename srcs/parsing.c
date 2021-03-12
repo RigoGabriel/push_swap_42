@@ -6,7 +6,7 @@
 /*   By: grigo <grigo@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 14:08:55 by grigo             #+#    #+#             */
-/*   Updated: 2021/03/09 13:22:08 by grigo            ###   ########.fr       */
+/*   Updated: 2021/03/12 19:06:09 by grigo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int		ft_nb_cmd(char **av, int i, int j, int len)
 		len++;
 		i++;
 	}
-	return (len);
+	return (len + 1);
 }
 
 int		new_cmd2(char **cmd, char *av, int **index_cmd, int *j_cmd)
