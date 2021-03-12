@@ -48,7 +48,7 @@ make
 
     Get a shuffled list:
 
-ARG=`ruby -e "puts (1..130).to_a.shuffle.join(' ')"`
+ARG='ruby -e "puts (1..130).to_a.shuffle.join(' ')"'
 
     exec programs:
 
